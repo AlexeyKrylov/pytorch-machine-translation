@@ -37,7 +37,7 @@ class TextUtils:
             Tuple[Lang, Lang, List[Tuple[str, str]]]: tuple of
                 (input lang class, out lang class, string pairs)
         """
-        with open(filename, mode="r", encoding="utf-8") as f:
+        with open("C:/Users/krilo/PycharmProjects/pytorch-machine-translation/src/data/"+filename, mode="r", encoding="utf-8") as f:
             lines = f.read().strip().split("\n")
 
         lang_pairs = []

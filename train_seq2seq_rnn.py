@@ -1,5 +1,7 @@
 import torch
 import yaml
+import sys
+sys.path.append("C:/Users/krilo/PycharmProjects/pytorch-machine-translation/src")
 from models import seq2seq_rnn, trainer
 from data.datamodule import DataManager
 from txt_logger import TXTLogger
@@ -10,11 +12,11 @@ if __name__ == "__main__":
     else:
         DEVICE = 'cpu'
 
-    data_config = yaml.load(open("configs/data_config.yaml", 'r'),   Loader=yaml.Loader)
+    data_config = yaml.load(open("C:/Users/krilo/PycharmProjects/pytorch-machine-translation/configs/data_config.yaml", 'r'),   Loader=yaml.Loader)
     dm = DataManager(data_config, DEVICE)
     train_dataloader, dev_dataloader = dm.prepare_data()
 
-    model_config = yaml.load(open("configs/model_config.yaml", 'r'),   Loader=yaml.Loader)
+    model_config = yaml.load(open("C:/Users/krilo/PycharmProjects/pytorch-machine-translation/configs/model_config.yaml", 'r'),   Loader=yaml.Loader)
 
     model = seq2seq_rnn.Seq2SeqRNN(
         encoder_vocab_size=len(dm.source_tokenizer.index2word),
@@ -28,7 +30,7 @@ if __name__ == "__main__":
         target_tokenizer=dm.target_tokenizer
     )
 
-    logger = TXTLogger('training_logs')
+    logger = TXTLogger('C:/Users/krilo/PycharmProjects/pytorch-machine-translation/training_logs')
     trainer_cls = trainer.Trainer(model=model, model_config=model_config, logger=logger)
 
     if model_config['try_one_batch']:

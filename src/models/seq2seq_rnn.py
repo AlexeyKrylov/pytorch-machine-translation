@@ -73,6 +73,7 @@ class Seq2SeqRNN(torch.nn.Module):
         target_tensor = target_tensor[:, :, None]
         target_length = target_tensor.shape[1]
         loss = 0.0
+
         for di in range(target_length):
             loss += self.criterion(
                 decoder_outputs[di].squeeze(), target_tensor[:, di, :].squeeze()

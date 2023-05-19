@@ -4,7 +4,6 @@ class TXTLogger:
     def __init__(self, work_dir):
         self.save_dir = work_dir
         self.filename = "progress_log.txt"
-
         if not os.path.exists(self.save_dir):
             os.makedirs(self.save_dir)
 
