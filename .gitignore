@@ -1,8 +1,8 @@
 .idea
 .ipynb_checkpoints
 _about.txt
-lightning_logs/
 runs/
 rus-eng.zip
 rus.txt
 __pycache__
+training_logs
